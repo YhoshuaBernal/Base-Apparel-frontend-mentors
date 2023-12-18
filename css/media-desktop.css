@@ -1,0 +1,66 @@
+@media screen and (min-width: 600px) {
+  :root {
+    font-size: 120%;
+  }
+  .nav-container{
+    width: 60%;
+    position: absolute;
+
+  }
+  .nav-container__logo {
+    height: 30px;
+  }
+  .nav-container__logo-container {
+    padding: 60px;
+  }
+  .main {
+    display: grid;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 3fr 2fr;
+    background-image: url(../images/bg-pattern-desktop.svg);
+    background-position: initial;
+    background-size: contain;
+    background-repeat: repeat-x;
+  }
+  .main_content {
+    font-size: 15px;
+    line-height: 24px;
+    padding: 0 24px;
+  }
+
+  .img-container__source {
+    object-position: center;
+    object-fit: contain;
+    background-image: url(../images/hero-desktop.jpg);
+  }
+  .img-container  {
+    height: 100%;
+  }
+  .img-container__source {
+    height: 100%;
+  }
+  .form__input { 
+    font-size: .7rem;
+  }
+}
+
+@media screen and (min-width: 901px) {
+  :root {
+    font-size: 150%;
+  }
+  .main_content {
+    padding: 0;
+  }
+  .main__info-section {
+    display: flex;
+    align-items: start;
+    text-align: start;
+    margin: 60px 0;
+    max-width: 500px;
+  }
+  #email-container form {
+    width: 100%;
+  }
+}
