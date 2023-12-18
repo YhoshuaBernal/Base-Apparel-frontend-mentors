@@ -60,7 +60,12 @@
     margin: 60px 0;
     max-width: 500px;
   }
-  #email-container form {
+  #email-container div {
     width: 100%;
+  }
+  #email-container div + p {
+    position: absolute;
+    top: 50px;
+    left: 20px;
   }
 }
