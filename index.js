@@ -1,36 +1,43 @@
-let input = document.querySelector("#email-container__email")
-let containerEmail = document.querySelector("#email-container")
-let formEmail = document.querySelector(".email-form")
+const input = document.querySelector("#email-container__email");
+const containerEmail = document.querySelector("#email-container");
+const formEmail = document.querySelector(".email-form");
+const buttonEmail = document.querySelector("#email-container__send-button");
+const errorIcon = document.querySelector(".form__icon-error");
 
-
-function createaParragraph (text) {
-  let newParragraph = document.createElement("p")
-  let existingParagraph = formEmail.querySelector("p");
+function createParagraph(text) {
+  const newParagraph = document.createElement("p");
+  const existingParagraph = formEmail.querySelector("p");
 
   if (existingParagraph) {
     existingParagraph.remove();
   }
 
-  newParragraph.innerText = text  
-  formEmail.appendChild(newParragraph)
+  newParagraph.innerText = text;
+  formEmail.appendChild(newParagraph);
 }
 
-function cambiarBorde () {
-  formEmail.setAttribute("borderColor", "hsl(0, 93%, 68%)")
-  // let bordeRojo = formEmail.style.borderColor = "hsl(0, 93%, 68%)"
+function changeColor(element, property, color) {
+  element.style[property] = color;
 }
 
-function validateEmail () {
-  let inputValie = input.value
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function validateEmail() {
+  const inputValue = input.value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (emailRegex.test(inputValie) == false) {
-    createaParragraph("Please provide a valid email")
+  if (!emailRegex.test(inputValue)) {
+    createParagraph("Please provide a valid email");
+    changeColor(formEmail, "border", "2px solid hsl(0, 93%, 68%)");
+    errorIcon.classList.remove("inactive");
   } else {
-    let existingParagraph = formEmail.querySelector("p");
-    existingParagraph.remove();
-    
+    const existingParagraph = formEmail.querySelector("p");
+
+    if (existingParagraph) {
+      existingParagraph.remove();
+    }
+
+    changeColor(formEmail, "border", "1px solid hsl(0, 6%, 24%, .2)");
+    errorIcon.classList.add("inactive");
   }
 }
-input.addEventListener("change", validateEmail)
 
+input.addEventListener("change", validateEmail);

@@ -68,4 +68,14 @@
     top: 50px;
     left: 20px;
   }
+  .email-form {
+    height: 55px;
+    border-radius: 30px;
+  }
+  .form__button-input {
+    border-radius: 30px;
+  } 
+  .form__icon-error {
+    right: 20%;
+  }
 }
